@@ -93,6 +93,9 @@ const CandidateSearch = () => {
           <p>
             <strong>Company:</strong> {currentCandidate.company || "N/A"}
           </p>
+          <p>
+            <strong>Bio:</strong> {currentCandidate.bio || "N/A"}
+          </p>
           <a
             href={currentCandidate.html_url}
             target="_blank"

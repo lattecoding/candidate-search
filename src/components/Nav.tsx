@@ -1,20 +1,17 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import CandidateSearch from "../pages/CandidateSearch";
-import SavedCandidates from "../pages/SavedCandidates";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <Router>
-      <nav>
-        <Link to="/">Candidate Search</Link>
-        <Link to="/saved">Saved Candidates</Link>
-      </nav>
-
-      <Routes>
-        <Route path="/" element={<CandidateSearch />} />
-        <Route path="/saved" element={<SavedCandidates />} />
-      </Routes>
-    </Router>
+    <nav>
+      <ul className="nav-items">
+        <li className="nav-item">
+          <Link to="/">Home</Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/SavedCandidates">Potential Candidates</Link>
+        </li>
+      </ul>
+    </nav>
   );
 };
 
