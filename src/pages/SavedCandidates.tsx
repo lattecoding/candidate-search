@@ -11,9 +11,18 @@ const SavedCandidates = () => {
     }
   }, []);
 
+  // Function to delete a candidate
+  const deleteCandidate = (id: number) => {
+    const updatedCandidates = savedCandidates.filter(
+      (candidate) => candidate.id !== id,
+    );
+    setSavedCandidates(updatedCandidates);
+    localStorage.setItem("savedCandidates", JSON.stringify(updatedCandidates));
+  };
+
   return (
     <div>
-      <h1>Potential Candidates</h1>
+      <h1>Saved Candidates</h1>
 
       {savedCandidates.length === 0 ? (
         <p>No candidates have been accepted yet.</p>
@@ -29,6 +38,7 @@ const SavedCandidates = () => {
               <th>Company</th>
               <th>Bio</th>
               <th>Profile</th>
+              <th>Action</th> {/* New column for actions */}
             </tr>
           </thead>
           <tbody>
@@ -55,6 +65,12 @@ const SavedCandidates = () => {
                   >
                     GitHub Profile
                   </a>
+                </td>
+                <td>
+                  <button onClick={() => deleteCandidate(candidate.id)}>
+                    Delete
+                  </button>{" "}
+                  {/* Delete button */}
                 </td>
               </tr>
             ))}

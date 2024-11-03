@@ -67,49 +67,50 @@ const CandidateSearch = () => {
   return (
     <div>
       <h1>Candidate Search</h1>
+      <main>
+        {loading && <p>Loading...</p>}
+        {noMoreCandidates && <p>No more candidates available for review.</p>}
 
-      {loading && <p>Loading...</p>}
-      {noMoreCandidates && <p>No more candidates available for review.</p>}
-
-      {currentCandidate && (
-        <div>
-          <img
-            src={currentCandidate.avatar_url}
-            alt={currentCandidate.login}
-            width={100}
-          />
-          <p>
-            <strong>Name:</strong> {currentCandidate.name || "N/A"}
-          </p>
-          <p>
-            <strong>Username:</strong> {currentCandidate.login}
-          </p>
-          <p>
-            <strong>Location:</strong> {currentCandidate.location || "N/A"}
-          </p>
-          <p>
-            <strong>Email:</strong> {currentCandidate.email || "N/A"}
-          </p>
-          <p>
-            <strong>Company:</strong> {currentCandidate.company || "N/A"}
-          </p>
-          <p>
-            <strong>Bio:</strong> {currentCandidate.bio || "N/A"}
-          </p>
-          <a
-            href={currentCandidate.html_url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View GitHub Profile
-          </a>
-
+        {currentCandidate && (
           <div>
-            <button onClick={saveCandidate}>+</button>
-            <button onClick={skipCandidate}>-</button>
+            <img
+              src={currentCandidate.avatar_url}
+              alt={currentCandidate.login}
+              width={100}
+            />
+            <p>
+              <strong>Name:</strong> {currentCandidate.name || "N/A"}
+            </p>
+            <p>
+              <strong>Username:</strong> {currentCandidate.login}
+            </p>
+            <p>
+              <strong>Location:</strong> {currentCandidate.location || "N/A"}
+            </p>
+            <p>
+              <strong>Email:</strong> {currentCandidate.email || "N/A"}
+            </p>
+            <p>
+              <strong>Company:</strong> {currentCandidate.company || "N/A"}
+            </p>
+            <p>
+              <strong>Bio:</strong> {currentCandidate.bio || "N/A"}
+            </p>
+            <a
+              href={currentCandidate.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View GitHub Profile
+            </a>
+
+            <div>
+              <button onClick={saveCandidate}>+</button>
+              <button onClick={skipCandidate}>-</button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </main>
     </div>
   );
 };
